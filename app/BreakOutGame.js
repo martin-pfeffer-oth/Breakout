@@ -34,6 +34,7 @@ var breakOutGame = (function () {
 	var ball;
 	var screen;
 
+	//Zeichenfunktion
 	function privateDraw() {
         console.log("Drawing!");
 		
@@ -55,6 +56,7 @@ var breakOutGame = (function () {
 		screen.eventStart();
 	}
 	
+	//Initialisierung der Game-Objekte
 	function publicInit(difficulty) {
 		setupPaddle();
 		setupBall(difficulty);
@@ -63,6 +65,7 @@ var breakOutGame = (function () {
 		window.requestAnimationFrame(privateDraw);
 	}
 	
+	//Start-Screen
 	function setupStart() {
 		screen = new Screen(GAME_WIDTH, GAME_HEIGHT, privateContext, canvas);
 	}
@@ -71,6 +74,7 @@ var breakOutGame = (function () {
 		screen.startScreenDraw();
 	}
 		
+	//Paddle
 	function setupPaddle() {
 		paddle = new Paddle(PADDLE_XPOS, PADDLE_YPOS, GAME_WIDTH, GAME_HEIGHT, privateContext);
 	}
@@ -82,6 +86,7 @@ var breakOutGame = (function () {
 		paddle.checkBallCollision(ball);
 	}
 	
+	//Ball
 	function setupBall(difficulty) {
 		ball = new Ball(GAME_WIDTH / 2, GAME_HEIGHT / 2, difficulty, BALLSIZE, GAME_WIDTH, GAME_HEIGHT, privateContext);
 	}
@@ -99,6 +104,7 @@ var breakOutGame = (function () {
 		
 	}
 
+	//Bricks
 	function setupBricks() {
 		var hit = false;
 		
@@ -122,6 +128,7 @@ var breakOutGame = (function () {
 		}
 	}
 	
+	//Eventlistener
 	function setupMouseListener() {
 		privateCanvas.addEventListener("mousemove", updatePaddlePosition);
 	}

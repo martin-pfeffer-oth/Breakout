@@ -11,6 +11,7 @@ Screen.prototype.startScreenDraw = function() {
 	this.context.fillRect(0, 0, this.width, this.heigth);
 };
 
+//Nachricht am Ende des Spiels - gewonnen oder verloren
 Screen.prototype.winScreenDraw = function(text) {
     this.context.fillStyle = "black";
     this.context.fillRect(0, 0, this.width, this.height);
@@ -20,12 +21,14 @@ Screen.prototype.winScreenDraw = function(text) {
     this.context.fillText(text, this.width / 2, this.heigth / 2);
 };
 
+//wird der Button geklickt startet das Spiel
 Screen.prototype.eventStart = function() {
 	var startButton = document.getElementById("startGameButton");
 	
 	startButton.addEventListener("click", this.startBreakOut);
 };
 
+//Schwierigkeitsgrad der Auswahl wird übernommen
 Screen.prototype.startBreakOut = function() {
 	var difficulty = document.getElementById("difficultyValue").value;
 	var menuDiv = document.getElementById("menu");
